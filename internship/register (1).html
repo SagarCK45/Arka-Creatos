@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transparent Registration Page</title>
+  <style>
+    body {
+      background-image: url('C:/Users/nsaik/Downloads/background.jpg');
+      background-size: cover;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.7); /* Set background color to semi-transparent black */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      color: white; /* Set text color to white */
+      position: relative;
+      width: calc(100% - 60%); /* Adjusted box size to match login page */
+    }
+
+    .form-container input {
+      width: calc(100% - 30px);
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: none; /* Remove border */
+      border-bottom: 1px solid #ccc; /* Add underline */
+      outline: none; /* Remove outline on focus */
+      background-color: transparent; /* Set input background color to transparent */
+      color: white; /* Set text color to white */
+      display: inline-block;
+    }
+
+    .toggle-password {
+      position: absolute;
+      top: 50%;
+      right: 5px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: white; /* Set eye color to white */
+      font-size: 20px;
+    }
+
+    .toggle-password::before {
+      content: '•'; /* Unicode character for a bullet • or any other hidden symbol */
+      position: absolute;
+      top: -3px;
+      right: -12px;
+      font-size: 24px;
+      color: white;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: transparent; /* Set button background color to transparent */
+      color: white; /* Set text color to white */
+      border: 1px solid white; /* Add white border */
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px; /* Increase font size for the register button */
+    }
+
+    .form-container a {
+      color: white; /* Set text color to white */
+      text-decoration: none;
+      margin-top: 10px;
+      display: inline-block;
+      font-size: 12px; /* Reduce font size for the links */
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Register</h2>
+    <form id="register-form" action="Login_page.html" method="post">
+      <input type="text" name="fullname" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email ID" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="text" name="license" placeholder="License Number" required>
+      <input type="password" name="password" id="password" placeholder="Password" required>
+      <span class="toggle-password" onclick="togglePassword('password')"></span>
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+      <button type="submit">Register</button>
+    </form>
+
+    <a href="Login_page.html">Already have an account? Login here</a>
+  </div>
+
+  <script>
+    function togglePassword(fieldId) {
+      var passwordField = document.getElementById(fieldId);
+
+      if (passwordField.type === "password") {
+        passwordField.type = "text";
+      } else {
+        passwordField.type = "password";
+      }
+    }
+  </script>
+</body>
+</html>
